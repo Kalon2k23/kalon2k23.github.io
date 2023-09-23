@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Invitx - Online Invitation Creation Platform">
+    <meta property="og:title" content="Invitx">
+    <meta property="og:description" content="Invitx - Online Invitation Creation Platform">
+    <meta property="og:image" content="https://ajinkj.github.io/invitx/INVITX.jpg">
+    <meta property="og:url" content="https://ajinkj.github.io/invitx/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Invitx">
+
+  <title>Invitx - Online Invitation Creation Platform</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Alice&family=Cardo:ital@1&family=Eczar:wght@500&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* CSS for Countdown Timer Circles */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-item {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-value {
+  font-weight: bold;
+  font-size: 30px;
+  color: #fff;
+}
+
+.countdown-text {
+  font-size: 18px;
+  color: #fff;
+}
+
+.countdown-circle {
+  width: 70px;
+  height: 70px;
+  background-color: #f437c1;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: breath 2s infinite;
+}
+
+.countdown-circle span {
+  display: block;
+}
+
+@keyframes breath {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+  .jumbotron {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('invitio.gif') center/cover no-repeat;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .jumbotron .container {
+    color: white;
+  }
+
+  .jumbotron h1,
+  .jumbotron p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .feature-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .feature-list-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .feature-list-item i {
+    font-size: 1.5rem;
+    color: #F9A826; /* Update with your desired color */
+    margin-right: 1rem;
+  }
+  .feature-list-item span {
+    padding-top: 0.25rem;
+    font-size: 1rem;
+  }
+  .logo-img {
+    max-width: 100%;
+    height: auto;
+  }
+  .head {
+  font-family: 'Selima', cursive;
+}
+.lead1 {
+    font-family: 'Cardo', serif;
+  color: #1d4e56;
+  font-size: 36px;
+}
+.s1{
+    font-family: 'Alex Brush', cursive;
+    font-size: 78px;
+}
+.s2{
+    font-size: 75px;
+    
+}
+b.s2 {
+            margin-top: 2000px;    /* Add space above the text */
+            margin-bottom: 2000px; /* Add space below the text */
+        }
+.display-4{
+    font-size: 56px;
+}
+.lead2{
+    font-family: 'Cardo', serif;
+    font-size: 23px;
+}
+.card-title{
+    font-family: 'Eczar', serif;
+}
+.card-text{
+    font-family: 'Eczar', serif;
+}
+.list-group{
+    font-family: 'Eczar', serif;
+}
+.card i{
+    padding-right: 1rem;
+    padding-left: .5rem;
+}
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E;
+}
+
+.whatsapp-button i {
+  font-size: 24px;
+}
+
+.share{
+  position: fixed;
+  bottom: 35px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #365b5f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+
+.share i {
+  font-size: 18px;
+}
+
+.whatsapp-black {
+  color: black;
+}
+
+/* Style the Font Awesome icons */
+.fa-calendar-alt,
+        .fa-clock,
+        .fa-map-marker {
+            font-size: 24px; /* Increase the icon size as needed */
+        }
+        
+        /* Style the container div */
+        .date-container {
+            margin-top: 40px; /* Add space above the entire content */
+            margin-bottom: 10px; /* Add space below the entire content */
+        }
+
+        .map-container {
+            margin-top: 15px; /* Add space above the entire content */
+            margin-bottom: 10px; /* Add space below the entire content */
+        }
+
+        .centered-text {
+            text-align: center; /* Center-align the text */
+            font-weight: bold; /* Make the text bold */
+            font-size: 24px;
+            margin-top: 15px; /* Add space above the entire content */
+            margin-bottom: 10px;
+        }
+
+</style>
+</head>
+<body>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Invitx</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#sample-invitation">Sample Invitation</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://forms.gle/nAHf8sSuGFZYdX1FA">Book Now</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pricing.html">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact Us</a>
+          </li>
+        <!-- Add more navigation links as needed -->
+      </ul>
+    </div>
+  </nav>
+
+  <section class="jumbotron text-center">
+    <div class="container">
+        <p>...</p>
+      <h1 class="display-6">Welcome to </h1>
+      <p>..........</p>
+      <h1 class="display-4"></h1><b class="s2">KALON 2K23</b></h1>
+      <p>.........</p>
+      <p class="lead2">Celebrating the Beauty of Goodness.</p>
+      <p>...</p>
+      <!-- Add a visually appealing image or slideshow here -->
+
+      <!-- <a href="#" class="btn btn-primary btn-lg btn-capsule">Book Now</a> -->
+      <!-- <a href="https://forms.gle/nAHf8sSuGFZYdX1FA" class="btn btn-outline-light btn-lg btn-capsule">Book Now</a> -->
+      <!-- <a href="#" class="btn btn-outline-primary btn-lg btn-capsule">Book Now</a> -->
+      <div class="simply-countdown simply-countdown-one">
+        <div class="countdown-container">
+          <div class="countdown-item">
+            <div class="countdown-circle" id="countdown-days">
+              <span class="countdown-value" id="days"></span>
+              <span class="countdown-text">Days</span>
+            </div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-circle" id="countdown-hours">
+              <span class="countdown-value" id="hours"></span>
+              <span class="countdown-text">Hours</span>
+            </div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-circle" id="countdown-minutes">
+              <span class="countdown-value" id="minutes"></span>
+              <span class="countdown-text">Minutes</span>
+            </div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-circle" id="countdown-seconds">
+              <span class="countdown-value" id="seconds"></span>
+              <span class="countdown-text">Seconds</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="date-container">
+        
+        <!-- Use Font Awesome icons for calendar and time -->
+        <i class="far fa-calendar-alt"></i>  Oct 8, 3PM (Sunday)
+        </div>
+        <div class="map-container">
+        <i class="fas fa-map-marker"></i> St. Xavier's Forane Church
+    </div>
+    </div>
+    </div>
+  </section>
+  
+  
+  
+
+  <div class="container">
+    <img src="kcym.png" alt="Invitx Logo" class="logo-img">
+    <div class="centered-text">
+        <b>KCYM</b> Mangalam Dam Forane
+    </div>
+    <p class="lead1 text-center"><b class="s1">Invites You </b></p> <br>
+        
+        <p class="lead1 text-center">
+        <b>Comeback here, for more updates about the event.</b></p>
+    <!-- Rest of the content -->
+    <div class="card-body text-center">
+        <p><b>Our Sponsor</b></p>
+        <a href="https://www.rhstudyabroad.com/" class="btn btn-outline-primary btn-lg btn-capsule">RH Study Abroad</a>
+      </div>
+  </div>
+  
+<hr>
+  
+  
+  <!-- About Section -->
+  <section id="about" class="container">
+    <div class="card text-center">
+        <div class="card-body">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <img src="INVITX.jpg" alt="Invitx Logo" class="logo-img">
+      </div>
+    </div>
+    
+        <h2 class="card-title">About Invitx</h2>
+        <p class="card-text">
+          Invitx, is a leading online invitation creation platform that simplifies the process of creating and sharing personalized webpages for events. We offer a user-friendly interface, customizable designs, and seamless integration with various features.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title text-center">Key Features:</h2>
+    
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-user text-primary mr-3"></i>
+          <span>User-friendly, attractive, and customized online invitations.</span>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-share-alt text-primary mr-3"></i>
+          <span>Customers can easily share their invitation webpage/card with friends and family.</span>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-mobile-alt text-primary mr-3"></i>
+          <span>Invitations are designed to be mobile-friendly and responsive.</span>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-map-marked text-primary mr-3"></i>
+          <span>Integration with Google Maps, users can obtain directions to the event venue.</span>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="d-flex align-items-center">
+          <i class="far fa-calendar-alt text-primary mr-3"></i>
+          <span>Save the Date Feature, allowing recipients to easily save the event date and time to their calendars.</span>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="d-flex align-items-center">
+          <i class="far fa-clock text-primary mr-3"></i>
+          <span>Countdown Timer, to build excitement and remind guests about the upcoming event.</span>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-palette text-primary mr-3"></i>
+          <span>Offers customizable design options, to match their event theme and personal preferences.</span>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-lock text-primary mr-3"></i>
+          <span>Secure and Reliable, protecting user information and preventing unauthorized access.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body text-center">
+  <a href="https://forms.gle/nAHf8sSuGFZYdX1FA" class="btn btn-outline-primary btn-lg btn-capsule">Book Now</a>
+</div>
+  </div>
+  
+
+  <section id="sample-invitation" class="container">
+    <div class="card my-4">
+      <div class="card-body text-center">
+        <h2 class="card-title">Sample Wedding Invitation</h2>
+        <p class="card-text">
+          Check out our beautifully designed wedding invitation sample:
+          <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <a href="https://ajinkj.github.io/wedding/" target="_blank"><img src="home.jpg" alt="Invitx Logo" class="logo-img"></a>
+              <br>
+            </div>
+          </div>
+          <a href="https://ajinkj.github.io/wedding/" class="btn btn-secondary" target="_blank">View Sample Wedding Invitation</a>
+        </p>
+        <!-- Add an image of the wedding invitation sample here -->
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact" class="container text-center">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Contact Us</h2>
+        <hr>
+        <div class="row">
+          <!-- Phone Number -->
+          <div class="col-md-4">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <h4>Phone Number</h4>
+              <p>+91 6238946884</p>
+            </div>
+          </div>
+  
+          <!-- Email -->
+          <div class="col-md-4">
+            <div class="contact-item">
+              <i class="far fa-envelope"></i>
+              <h4>Email</h4>
+              <p>info.invitx@gmail.com</p>
+            </div>
+          </div>
+  
+          <!-- WhatsApp Chat -->
+          <div class="col-md-4">
+            <div class="contact-item">
+              <a href="https://wa.me/6238946884?text=I%20like%20to%20know%20more%20about%20Invitx" target="_blank">
+                <i class="fab fa-whatsapp whatsapp-black"></i>
+
+              </a>
+              <h4>WhatsApp Chat</h4>
+              <p>+91 6238946884</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="message" class="container text-center">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Get In Touch</h3>
+          <form id="contactForm" method="POST" action="mailto:info.invitx@gmail.com" enctype="text/plain">
+            <div class="form-group">
+              <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+<a href="javascript:void(0);" class="share" onclick="shareWebsite()">
+  <i class="fas fa-share-alt"></i>
+</a>  
+
+  <!-- <a href="https://wa.me/+916238946884?text=I%20like%20to%20know%20more%20about%20Invitx" class="whatsapp-button">
+    <i class="fab fa-whatsapp"></i>
+  </a> -->
+
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3">
+    <p>&copy; 2023 Invitx. All rights reserved.</p>
+  </footer>
+
+
+  <script>
+    function shareWebsite() {
+if (navigator.share) {
+navigator.share({
+  title: 'Invitx',
+  text: 'Check out this amazing website!',
+  url: 'https://ajinkj.github.io/invitx/'
+})
+  .then(() => console.log('Shared successfully'))
+  .catch((error) => console.log('Error sharing:', error));
+} else {
+// Fallback for browsers that don't support Web Share API
+alert('Sharing is not supported on this browser.');
+}
+}
+
+  </script>
+  <script>
+    // Get the date and time for the countdown
+    var countdownDate = new Date("2023-10-08T15:00:00").getTime();
+
+// Update the countdown every 1 second
+var countdownTimer = setInterval(function() {
+// Get the current date and time
+var now = new Date().getTime();
+
+// Calculate the time remaining
+var timeRemaining = countdownDate - now;
+
+// Calculate days, hours, minutes, and seconds
+var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+// Display the countdown on the page
+document.getElementById("days").innerHTML = days;
+document.getElementById("hours").innerHTML = hours;
+document.getElementById("minutes").innerHTML = minutes;
+document.getElementById("seconds").innerHTML = seconds;
+
+// If the countdown is finished, display a message
+if (timeRemaining < 0) {
+  clearInterval(countdownTimer);
+  document.getElementById("countdown").innerHTML = "Event is Live";
+}
+}, 1000);
+    </script>
+    
+  <!-- Main -->
+  <script src="js/main.js"></script>
+
+  <script>
+  var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
+
+  // default example
+  simplyCountdown('.simply-countdown-one', {
+      year: d.getFullYear(),
+      month: d.getMonth() + 1,
+      day: d.getDate()
+  });
+
+  //jQuery example
+  $('#simply-countdown-losange').simplyCountdown({
+      year: d.getFullYear(),
+      month: d.getMonth() + 1,
+      day: d.getDate(),
+      enableUtc: false
+  });
+</script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
