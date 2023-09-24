@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KALON 2K23 - Celebrating the Beauty of Goodness.">
-    <meta property="og:title" content="KALON 2K23">
-    <meta property="og:description" content="KALON 2K23 - Celebrating the Beauty of Goodness. You are Invited, KCYM Mangalam Dam Forane.">
-    <meta property="og:image" content="https://kalon2k23.github.io/poster.jpeg">
-    <meta property="og:url" content="https://kalon2k23.github.io">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="KALON 2K23">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KALON 2K23 - Celebrating the Beauty of Goodness.">
+  <meta property="og:title" content="KALON 2K23">
+  <meta property="og:description" content="KALON 2K23 - Celebrating the Beauty of Goodness. You are Invited, KCYM Mangalam Dam Forane.">
+  <meta property="og:image" content="https://kalon2k23.github.io/poster.jpeg">
+  <meta property="og:url" content="https://kalon2k23.github.io">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KALON 2K23">
 
-  <title>KALON 2K23 - Celebrating the Beauty of Goodness.</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Alice&family=Cardo:ital@1&family=Eczar:wght@500&display=swap" rel="stylesheet">
+<title>KALON 2K23 - Celebrating the Beauty of Goodness.</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Alice&family=Cardo:ital@1&family=Eczar:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
 <style>
   body {
     font-family: 'Poppins', sans-serif;
@@ -129,7 +131,7 @@
 }
 .s1{
     font-family: 'Alex Brush', cursive;
-    font-size: 78px;
+    font-size: 70px;
 }
 .s2{
     font-size: 75px;
@@ -230,10 +232,64 @@ b.s2 {
         .centered-text {
             text-align: center; /* Center-align the text */
             font-weight: bold; /* Make the text bold */
-            font-size: 24px;
+            font-size: 22px;
             margin-top: 15px; /* Add space above the entire content */
             margin-bottom: 10px;
         }
+
+        /* Styles for the loading container */
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* You can change the background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Styles for the pulsing logo animation */
+.logo-pulse {
+    width: 250px; /* Adjust the size of your logo */
+    height: 250px;
+    /* You can change the background color */
+    border-radius: 50%;
+    animation: pulse 2s infinite; /* Adjust the animation duration */
+}
+
+/* Keyframes for the pulsing animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Adjust the scaling factor */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Hide the website content initially */
+.website-content {
+    display: none;
+}
+
+/* Style for the loading image */
+.loading-container img {
+    max-width: 100%; /* Adjust the max width as needed */
+    max-height: 600%; /* Adjust the max height as needed */
+}
+
+/* Style for the "Powered by INVITX" text */
+.loading-container p {
+    font-size: 10px; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: #333; /* You can change the text color */
+}
 
 </style>
 </head>
@@ -258,6 +314,16 @@ b.s2 {
     </div>
   </nav>
 
+
+  <div class="loading-container">
+    <div class="logo-pulse">
+      <img src="KALON2K23.jpg">
+      
+      <p>Powered by <b>INVITX</b></p>
+    </div>
+</div>
+
+<div class="website-content">
   <section class="jumbotron text-center">
     <div class="container">
         <p>...</p>
@@ -313,25 +379,82 @@ b.s2 {
   </section>
   
   
-  
+    <!-- About Section -->
+    <section id="about" class="container">
+      <div class="card text-center">
+          <div class="card-body">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center">
+          <img src="kcym.png" alt="Invitx Logo" class="logo-img">
+        </div>
+      </div>
+      
+          <h2 class="card-title centered-text"><b>KCYM</b> Mangalam Dam Forane</h2>
+          <p class="lead1 text-center"><b class="s1">Invites You </b></p> 
+          
+          <h4><b><i>Be there to witness the KCYM youth Convention.</i></b></h4>
+        </div>
+      </div>
+    </section>
 
-  <div class="container">
-    <img src="kcym.png" alt="Invitx Logo" class="logo-img">
+    <section id="sample-invitation" class="container">
+      <div class="card my-4">
+        <div class="card-body text-center">
+          <h2 class="card-title">Event Location</h2>
+          <p class="card-text">
+            
+            <div id="map" style="height: 400px;" class="row justify-content-center">
+              
+              </div>
+              
+            
+            <br>
+            <p text-center><i>Click on the button below to get Google map direction to the venue.</i></p>
+            <a href="https://www.google.com/maps/dir/Current+Location/10.5208936464,76.5393662453" class="btn btn-outline-primary btn-lg btn-capsule" target="_blank">Get Direction</a>
+          </p>
+          <!-- Add an image of the wedding invitation sample here -->
+        </div>
+      </div>
+    </section>
+
+    <section id="sample-invitation" class="container">
+      <div class="card my-4">
+        <div class="card-body text-center">
+          <h2 class="card-title">Our Sponsor</h2>
+          <p class="card-text">
+            
+            <div class="row justify-content-center">
+              <div class="col-12 text-center">
+                  <a href="https://www.rhstudyabroad.com/" target="_blank"><img src="RH.jpeg" alt="Invitx Logo" class="logo-img"></a>
+                <br><br>
+                <I>RH Study Abroad, Kerala's Most Trusted Study Overseas Consultants in India.</I>
+              </div>
+              
+            </div>
+            <br>
+            <a href="https://www.rhstudyabroad.com/" class="btn btn-outline-primary btn-lg btn-capsule" target="_blank">RH Study Abroad</a>
+          </p>
+          <!-- Add an image of the wedding invitation sample here -->
+        </div>
+      </div>
+    </section>
+  <!-- <div class="container"> -->
+    <!-- <img src="kcym.png" alt="Invitx Logo" class="logo-img">
     <div class="centered-text">
         <b>KCYM</b> Mangalam Dam Forane
     </div>
     <p class="lead1 text-center"><b class="s1">Invites You </b></p> <br>
         
         <p class="lead1 text-center">
-        <b>Comeback here, for more updates about the event.</b></p>
+        <b>Comeback here, for more updates about the event.</b></p> -->
     <!-- Rest of the content -->
-    <div class="card-body text-center">
+    <!-- <div class="card-body text-center">
         <p><b>Our Sponsor</b></p>
         <a href="https://www.rhstudyabroad.com/" class="btn btn-outline-primary btn-lg btn-capsule">RH Study Abroad</a>
       </div>
-  </div>
+  </div> -->
   
-<hr>
+
   
    
 <a href="javascript:void(0);" class="share" onclick="shareWebsite()">
@@ -344,17 +467,45 @@ b.s2 {
 
   <!-- Footer -->
   <footer class="bg-light text-center py-3">
-    <p>&copy; 2023 <a href="https://invitx.thinkerbytes.live/"><b>Invitx</b></a>. All rights reserved.</p>
+    <p>&copy; 2023 <a href="https://invitx.thinkerbytes.live/"><b>Invitx</b></a>. An Online Invitation Platform.</p>
   </footer>
 
+</div>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+  // Initialize the map
+var map = L.map('map').setView([10.5208936464, 76.5393662453], 13); // Set the initial coordinates and zoom level
 
+// Add a tile layer (you can choose a different provider)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// Add a marker to the map (you can set the marker coordinates accordingly)
+L.marker([10.5208936464, 76.5393662453]).addTo(map)
+    .bindPopup('Event Location')
+    .openPopup();
+
+</script>
+<script>
+  // Wait for the page to fully load
+window.addEventListener('load', function () {
+    // Hide the loading animation after 5 seconds
+    setTimeout(function () {
+        document.querySelector('.loading-container').style.display = 'none';
+        document.querySelector('.website-content').style.display = 'block';
+    }, 2500); // 5000 milliseconds = 5 seconds
+});
+
+
+</script>
   <script>
     function shareWebsite() {
 if (navigator.share) {
 navigator.share({
   title: 'KALON 2K23',
   text: 'KALON 2K23 - Celebrating the Beauty of Goodness. You are Invited, KCYM Mangalam Dam Forane.',
-  url: 'https://kalon2k23.github.io'
+  url: 'https://kalon2k23.github.io/kalon/'
 })
   .then(() => console.log('Shared successfully'))
   .catch((error) => console.log('Error sharing:', error));
