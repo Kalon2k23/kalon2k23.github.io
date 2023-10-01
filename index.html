@@ -21,12 +21,66 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Alice&family=Cardo:ital@1&family=Eczar:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   
 
 <style>
   body {
     font-family: 'Poppins', sans-serif;
   }
 
+  .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 20% auto;
+            padding: 20px;
+            width: 70%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+  /* Style the registration form */
+        #question p {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
   /* CSS for Countdown Timer Circles */
 .countdown-container {
   display: flex;
@@ -397,6 +451,36 @@ b.s2 {
       </div>
     </section>
 
+
+  <section class="confirmation-section">
+        <h2>Are you Coming?</h2>
+        <p>Please confirm your participation by registering.</p>
+        <button id="register-button">Register Now</button>
+    </section>
+
+    <!-- The Modal -->
+    <div id="registration-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div id="question">
+                    <p>Enter your name:</p>
+                    <input type="text" id="name-input">
+                    <p>Enter your parish:</p>
+                    <input type="text" id="parish-input">
+                    <p>Enter your Phone number:</p>
+                    <input type="text" id="phone-input">
+                    <button id="next-question"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <button id="send-data" style="display: none;">Send</button>
+            <a href="https://wa.me/919645772298?text=I%20will%20be%20attending%20the%20event" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <p>Send this data to the KALON2K23 event coordinator to confirm your participation by sending this message on WhatsApp.</p>
+        </div>
+    </div>
+  
     <section id="sample-invitation" class="container">
       <div class="card my-4">
         <div class="card-body text-center">
@@ -473,6 +557,55 @@ b.s2 {
 
 </div>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script> 
+    // Handle sending data via WhatsApp
+$("#send-data").click(function () {
+    let name = $("#name-input").val();
+    let parish = $("#parish-input").val();
+    let phone = $("#phone-input").val();
+
+    let message = `Hello, ${name}! Parish: ${parish}, Phone: ${phone}`;
+
+    // Redirect the user to WhatsApp with the predefined message
+    let whatsappURL = `https://wa.me/919645772298?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
+
+    // Hide the modal and reset currentIndex
+    currentIndex = 0;
+    $("#registration-modal").hide('fade', 500);
+    $("#question").html(`<p>Enter your name:</p>`);
+    $("#send-data").hide();
+});
+
+// Handle modal animations
+$("#register-button").click(function () {
+    $("#registration-modal").show('fade', 500);
+});
+
+$(".close").click(function () {
+    $("#registration-modal").hide('fade', 500);
+});
+
+// Handle the animations and questions
+let questions = ["Enter your name:", "Enter your parish:", "Enter your Phone number:"];
+let currentIndex = 0;
+
+$("#next-question").click(function () {
+    if (currentIndex < questions.length - 1) {
+        currentIndex++;
+        $("#question p").text(questions[currentIndex]);
+        $("#name-input").val("");
+        $("#parish-input").val("");
+        $("#phone-input").val("");
+    } else {
+        // Final question, show confirmation message
+        let name = $("#name-input").val();
+        let message = `Hello, ${name}! Your data has been submitted.`;
+        $("#question").html(`<p>${message}</p>`);
+        $("#send-data").show();
+    }
+});
+  </script>
 <script>
   // Initialize the map
 var map = L.map('map').setView([10.5208936464, 76.5393662453], 13); // Set the initial coordinates and zoom level
