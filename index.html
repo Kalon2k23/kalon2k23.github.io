@@ -510,6 +510,10 @@ b.s2 {
 </div>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script> 
+    // JavaScript code to handle modal close action
+$(".close").click(function () {
+    $("#registration-modal").hide();
+});
   // Handle modal animations and open Google Form
 $("#register-btn").click(function () {
     $("#registration-modal").show('fade', 500);
