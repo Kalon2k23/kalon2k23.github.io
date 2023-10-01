@@ -402,6 +402,16 @@ b.s2 {
       </div>
     </section>
 
+  <section id="are-you-coming" class="container">
+  <div class="card my-4">
+    <div class="card-body text-center">
+      <h2 class="card-title">Are You Coming?</h2>
+      <p class="card-text">Please confirm your participation by registering below.</p>
+      <button class="btn btn-primary btn-lg btn-capsule" id="register-btn">Register Now</button>
+    </div>
+  </div>
+  </section>
+  
 <!-- The Modal -->
 <div id="registration-modal" class="modal">
     <div class="modal-content">
@@ -491,7 +501,7 @@ b.s2 {
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script> 
   // Handle modal animations and open Google Form
-$("#register-button").click(function () {
+$("#register-btn").click(function () {
     $("#registration-modal").show('fade', 500);
 });
 
